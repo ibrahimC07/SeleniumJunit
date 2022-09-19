@@ -2,6 +2,7 @@ package day07;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -11,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
+import java.util.List;
 
 public class C04_Dropdown {
     WebDriver driver;
@@ -35,10 +37,32 @@ public class C04_Dropdown {
         WebElement ddm = driver.findElement(By.xpath("//*[@id='dropdown']"));
         Select select = new Select(ddm);
         select.selectByIndex(1);
+        ddm.sendKeys("Option 1");
         //Value kullanarak Seçenek 2'yi (Option 2) seçin ve yazdırın
+        select.selectByValue("2");
+        System.out.println(select.getFirstSelectedOption().getText());
+        System.out.println("=========================");
         //Visible Text(Görünen metin) kullanarak Seçenek 1’i (Option 1) seçin ve yazdırın
+        select.selectByVisibleText("Option 1");
+        System.out.println(select.getFirstSelectedOption().getText());
+        System.out.println("======================");
+        //2.yol
+      //  System.out.println(select.getAllSelectedOptions().get(0).getText());
         //Tüm dropdown değerleri(value) yazdırın
-        //Dropdown’un boyutunu bulun, Dropdown’da 4 öğe varsa konsolda True , degilse
-        //False yazdırın.
+        List<WebElement> butunDdm = driver.findElements(By.xpath("//option"));
+        butunDdm.forEach(t-> System.out.println(t.getText()));
+        //2.yol
+        List<WebElement> tumDdm = select.getOptions();
+        tumDdm.forEach(t-> System.out.println(t.getText()));  // lambda
+        //for (WebElement w:tumDdm) {
+          //  System.out.println(w.getText());
+      //  }
+        //Dropdown’un boyutunu bulun, Dropdown’da 4 öğe varsa konsolda True , degilse False yazdırın.
+        System.out.println("Dropdown boyutu"+butunDdm.size());
+        if (butunDdm.size()==4){
+            System.out.println("True");
+        }else System.out.println("false");
+        Assert.assertNotEquals(4,butunDdm.size());
+
     }
 }
