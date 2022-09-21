@@ -43,11 +43,13 @@ public class C02_Allerts {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://the-internet.herokuapp.com/javascript_alerts");
     }
     @After
     public void tearDown() {
         //driver.close();
     }
+
     @Test
     public void test1() throws InterruptedException {
         //https://the-internet.herokuapp.com/javascript_alerts adresine gidin.

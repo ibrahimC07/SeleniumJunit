@@ -54,6 +54,7 @@ public class C01_Iframe {
         driver.switchTo().defaultContent(); // Iframe'den çıkıp ana sayfaya geçmek için bu method kullanılır
         WebElement elemantal = driver.findElement(By.xpath("//*[text()='Elemental Selenium']"));
         Assert.assertTrue(elemantal.isDisplayed());
-        System.out.println(elemantal.getText());
-    }
-}
+        System.out.println(elemantal.getText());nn
+    } }
+
+

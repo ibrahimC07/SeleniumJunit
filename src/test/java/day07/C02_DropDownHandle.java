@@ -10,6 +10,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 import java.util.List;
@@ -38,11 +39,12 @@ public class C02_DropDownHandle {
     }
     @After
     public void tearDown() {
-        //driver.close();
+        driver.close();
     }
+
     @Test
     public void test1(){
-        //Arama kutusunun yanindaki kategori menusundeki kategori sayisinin 45
+//Arama kutusunun yanindaki kategori menusundeki kategori sayisinin 45
         //oldugunu test edin
         List<WebElement> drops = driver.findElements(By.xpath("//option"));
         System.out.println(drops.size());
@@ -67,7 +69,7 @@ public class C02_DropDownHandle {
         String expectedKelime = "Java";
         String actualSonucYazisi = sonucYazisi.getText();
         Assert.assertTrue(actualSonucYazisi.contains(expectedKelime));
-
     }
-
 }
+
+
