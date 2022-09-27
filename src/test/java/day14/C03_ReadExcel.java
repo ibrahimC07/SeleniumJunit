@@ -3,11 +3,13 @@ package day14;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 
 public class C03_ReadExcel {
+    @Test
     public void readExcelTest1() throws IOException {
 
         //Belirtilen satırNo ve sutunNo değerlerini parametre olarak alıp o cell'deki datayı konsola yazdıralım

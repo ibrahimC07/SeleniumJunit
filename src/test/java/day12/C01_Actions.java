@@ -12,11 +12,11 @@ public class C01_Actions extends TestBaseBeforeAfter {
         //Automationexercises.com sitesine gidelim
         driver.get("https://www.automationexercise.com");
         //Product bölümüne girelim
-        driver.findElement(By.cssSelector("a[href=\"/products\"]")).click();
+        driver.findElement(By.xpath("//*[text()=' Products']")).click();
         //ilk ürüne tıklayalım
-        Actions actions = new Actions(driver);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        driver.findElement(By.cssSelector("a[data-product-id=\"1\"]")).click();
+        driver.findElement(By.xpath("(//*[@data-product-id='1'])[1]")).click();
+
 
     }
 }

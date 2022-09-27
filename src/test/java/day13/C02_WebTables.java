@@ -14,18 +14,17 @@ public class C02_WebTables extends TestBaseBeforeAfter {
     public void test1() {
         //Bir class oluşturun : C02_WebTables
         //login( ) metodun oluşturun ve oturum açın.
-
         //https://www.hotelmycamp.com/admin/HotelRoomAdmin adresine gidin
-        login();
         //Username : manager
         //Password : Manager1!
         //table( ) metodu oluşturun
-        table();
-
-    }
-
-    private void table() {
         //Tüm table body’sinin boyutunu(sutun sayisi) bulun.
+        driver.get("https://www.hotelmycamp.com/admin/HotelRoomAdmin");
+        //driver.findElement(By.xpath("//*[@id='UserName']")).click();
+        Actions actions = new Actions(driver);
+        WebElement userName = driver.findElement(By.xpath("//*[@id='UserName']"));
+        actions.click(userName).sendKeys("manager").
+                sendKeys(Keys.TAB).sendKeys("Manager1!").sendKeys(Keys.ENTER).perform();
         /*
         Tabloda <table> tag'ı altında tablonun başlığını gösteren <thead> tagı bulunu. Eğer başlıkta satır(row) varsa
         <thead> tag'ı altında <tr>(satır-row) tagı vardır. Ve başlıktaki sütunlara yani hücrelere(cell) de <th> tag'ı
@@ -49,15 +48,6 @@ public class C02_WebTables extends TestBaseBeforeAfter {
         //4.satirdaki(row) elementleri konsolda yazdırın.
         System.out.println("Tablodaki 4. satır : "+driver.findElement(By.xpath("//tbody//tr[4]")).getText());
     }
-
-    private void login() {
-        driver.get("https://www.hotelmycamp.com/admin/HotelRoomAdmin");
-        //driver.findElement(By.xpath("//*[@id='UserName']")).click();
-        Actions actions = new Actions(driver);
-        WebElement userName = driver.findElement(By.xpath("//*[@id='UserName']"));
-        actions.click(userName).sendKeys("manager").
-                sendKeys(Keys.TAB).sendKeys("Manager1!").sendKeys(Keys.ENTER).perform();
-
-    }
-
 }
+
+
