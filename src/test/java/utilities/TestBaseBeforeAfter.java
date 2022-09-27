@@ -19,6 +19,8 @@ public abstract class TestBaseBeforeAfter {
     protected String tarih;
 
 
+
+
     @Before
     public void setUp(){
         WebDriverManager.chromedriver().setup();
@@ -30,6 +32,8 @@ public abstract class TestBaseBeforeAfter {
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter formater = DateTimeFormatter.ofPattern("YYMMddHHmmss");
         tarih = date.format(formater);
+
+
 
     }
     @After
