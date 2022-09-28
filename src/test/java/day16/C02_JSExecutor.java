@@ -17,5 +17,6 @@ public class C02_JSExecutor extends TestBaseBeforeAfter {
         jse.executeScript("arguments[0].scrollIntoView(true);",carrers);
         //Carrers butonuna js ile click yapalım
         jse.executeScript("arguments[0].click();",carrers);
+
     }
 }
